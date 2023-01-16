@@ -1,13 +1,13 @@
 resource "google_compute_firewall" "firewall" {
-  project     = "${var.project}"
-  name           = "${var.firewallname}"
-  network        = "${var.network}"
+  project     = "hostproject-test"
+  name           = "test-rule-1"
+  network        = "projects/hostproject-test/global/networks/test"
   provider       = "google-beta"
-  description    = "${var.description}"
+  description    = "Baseline Deny All"
   #@enable_logging@
-  direction      = "${var.direction}"
+  direction      = "EGRESS"
   destination_ranges = ["0.0.0.0/0"]
-  priority       = "${var.priority}"
+  priority       = "1000"
   target_tags    = "${var.tags}"
   deny { #3
   protocol = "all" #3
