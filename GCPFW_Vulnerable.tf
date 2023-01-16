@@ -1,4 +1,4 @@
-resource "google_compute_firewall" "firewall" {
+  resource "google_compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-2"
   network        = "projects/hostproject-test/global/networks/test"
@@ -6,7 +6,7 @@ resource "google_compute_firewall" "firewall" {
   description    = "Allow Inbound"
   #@enable_logging@
   direction      = "INGRESS"
-  source_ranges = ["0.0.0.0/0"     ]
+  source_ranges = ["0.0.0.0/0"]
   priority       = "1001"
   target_tags    = "${var.tags}"
   allow { #1
