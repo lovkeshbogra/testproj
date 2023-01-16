@@ -1,13 +1,13 @@
 resource "google_compute_firewall" "firewall" {
-  project     = "${var.project}"
-  name           = "${var.firewallname}"
-  network        = "${var.network}"
+  project     = "hostproject-test"
+  name           = "test-rule-2"
+  network        = "projects/hostproject-test/global/networks/test"
   provider       = "google-beta"
-  description    = "${var.description}"
+  description    = "Allow Inbound"
   #@enable_logging@
-  direction      = "${var.direction}"
+  direction      = "INGRESS"
   source_ranges = ["0.0.0.0/0"     ]
-  priority       = "${var.priority}"
+  priority       = "1001"
   target_tags    = "${var.tags}"
   allow { #1
   protocol = "tcp" #1
