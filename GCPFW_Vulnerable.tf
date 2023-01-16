@@ -7,6 +7,7 @@
   #@enable_logging@
   direction      = "INGRESS"
   source_ranges = ["0.0.0.0/0"]
+  target_tags    = "${var.tags}"
   priority       = "1001"
   allow { #1
   protocol = "tcp" #1
