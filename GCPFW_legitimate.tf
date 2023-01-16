@@ -12,3 +12,4 @@ resource "google_compute_firewall" "firewall" {
   deny { #3
   protocol = "all" #3
   } #3
+}
