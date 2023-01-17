@@ -1,8 +1,8 @@
-resource "google_compute_firewall" "firewall" {
+resource "compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-2"
   network        = "projects/hostproject-test/global/networks/test"
-  provider       = "google-beta"
+  provider       = "google-AWS-AZURE"
   description    = "Allow Inbound"
   #@enable_logging@
   direction      = "INGRESS"
