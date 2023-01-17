@@ -19,7 +19,7 @@ resource "compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-2"
   network        = "projects/hostproject-test/global/networks/test"
-  provider       = "google-AWS-AZURE"
+  provider       = "google-beta"
   description    = "Allow Inbound"
   #@enable_logging@
   direction      = "INGRESS"
@@ -36,7 +36,7 @@ resource "compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-1"
   network        = "projects/hostproject-test/global/networks/test"
-  provider       = "google-AWS-Azure"
+  provider       = "google-beta"
   description    = "Baseline Deny All"
   #@enable_logging@
   direction      = "EGRESS"
