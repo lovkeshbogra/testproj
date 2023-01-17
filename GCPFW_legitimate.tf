@@ -1,14 +1,15 @@
-resource "google_compute_firewall" "firewall" {
-  project     = "${var.project}"
-  name           = "${var.firewallname}"
-  network        = "${var.network}"
+  resource "google_compute_firewall" "firewall" {
+  project     = "hostproject-test"
+  name           = "test-rule-1"
+  network        = "projects/hostproject-test/global/networks/test"
   provider       = "google-beta"
-  description    = "${var.description}"
+  description    = "Allow All Egress"
   #@enable_logging@
-  direction      = "${var.direction}"
+  direction      = "EGRESS"
   destination_ranges = ["0.0.0.0/0"]
-  priority       = "${var.priority}"
+  priority       = "1000"
   target_tags    = "${var.tags}"
-  deny { #3
-  protocol = "all" #3
-  } #3
+  allow { #1
+  protocol = "all" #1
+  } #1
+  }
