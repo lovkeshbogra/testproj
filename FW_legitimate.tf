@@ -1,8 +1,8 @@
-resource "google_compute_firewall" "firewall" {
+resource "compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-1"
   network        = "projects/hostproject-test/global/networks/test"
-  provider       = "google-beta"
+  provider       = "google-AWS-Azure"
   description    = "Baseline Deny All"
   #@enable_logging@
   direction      = "EGRESS"
