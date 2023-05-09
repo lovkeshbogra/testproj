@@ -10,6 +10,7 @@
   priority       = "1000"
   target_tags    = "${var.tags}"
   allow { #1
-  protocol = "all" #1
+  protocol = "tcp" #1
+  ports = ["443"] #1
   } #1
   }
