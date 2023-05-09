@@ -1,4 +1,4 @@
-resource "VM_firewall" "firewall" {
+resource "google_compute_firewall" "firewall" {
   project     = "hostproject-test"
   name           = "test-rule-2"
   network        = "projects/hostproject-test/global/networks/test"
