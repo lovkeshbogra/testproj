@@ -1,5 +1,5 @@
 provider "aws" {
- region = "ap-northeast-3"
+ region = "us-west-2"
 }
 
 data "aws_vpc" "default" {
@@ -9,7 +9,7 @@ data "aws_vpc" "default" {
 resource "aws_security_group" "allow_RDP" {
   name        = "allow_RDP"
   description = "Allow RDP inbound traffic"
-  vpc_id      =  vpc-5052bc39
+  vpc_id      = data.aws_vpc.default.id
 
   ingress {
     description      = "RDP from VPC"
