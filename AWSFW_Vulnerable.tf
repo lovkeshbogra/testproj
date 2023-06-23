@@ -6,7 +6,7 @@ data "aws_vpc" "default" {
  default = true
 }
 
-resource "aws_security_group" "allow_tls" {
+resource "aws_security_group" "allow_RDP" {
   name        = "allow_RDP"
   description = "Allow RDP inbound traffic"
   vpc_id      = aws_vpc.main.id
