@@ -9,7 +9,7 @@ data "aws_vpc" "default" {
 resource "aws_security_group" "allow_RDP" {
   name        = "allow_RDP"
   description = "Allow RDP inbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      =  vpc-5052bc39
 
   ingress {
     description      = "RDP from VPC"
