@@ -6,23 +6,15 @@ data "aws_vpc" "default" {
  default = true
 }
 
-resource "aws_security_group" "allow_RDP_SSH_HTTPS" {
-  name        = "allow_RDP_SSH_HTTPS"
-  description = "Allow RDP,SSH,HTTPS inbound traffic"
+resource "aws_security_group" "allow_HTTP_HTTPS" {
+  name        = "allow_HTTP_HTTPS"
+  description = "Allow HTTP,HTTPS inbound traffic"
   vpc_id      = data.aws_vpc.default.id
 
-  ingress {
-    description      = "RDP Allow"
-    from_port        = 3389
-    to_port          = 3389
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
 ingress {
-    description      = "SSH Allow"
-    from_port        = 22
-    to_port          = 22
+    description      = "HTTP Allow"
+    from_port        = 80
+    to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
