@@ -6,13 +6,21 @@ data "aws_vpc" "default" {
  default = true
 }
 
-resource "aws_security_group" "allow_HTTP_HTTPS" {
-  name        = "allow_HTTP_HTTPS"
-  description = "Allow HTTP,HTTPS inbound traffic"
+resource "aws_security_group" "allow_HTTP_HTTPS_RDP" {
+  name        = "allow_HTTP_HTTPS_RDP"
+  description = "Allow HTTP,HTTPS,RDP inbound traffic"
   vpc_id      = data.aws_vpc.default.id
 
 ingress {
     description      = "HTTP Allow"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+ingress {
+    description      = "RDP Allow"
     from_port        = 3389
     to_port          = 3389
     protocol         = "tcp"
@@ -35,6 +43,6 @@ ingress {
   }
 
   tags = {
-    Name = "allow_HTTP_HTTPS"
+    Name = "allow_HTTP_HTTPS_RDP"
   }
 }
