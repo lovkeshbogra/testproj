@@ -13,8 +13,8 @@ resource "aws_security_group" "allow_HTTP_HTTPS" {
 
 ingress {
     description      = "HTTP Allow"
-    from_port        = 80
-    to_port          = 80
+    from_port        = 3389
+    to_port          = 3389
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
