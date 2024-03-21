@@ -1,5 +1,5 @@
 provider "aws" {
- region = "us-east-1"
+ region = "us-west-2"
 }
 
 data "aws_vpc" "default" {
@@ -19,7 +19,13 @@ ingress {
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
-
+ingress {
+    description      = "HTTP Allow"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
 
 ingress {
     description      = "SSH Allow"
