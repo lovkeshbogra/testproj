@@ -6,7 +6,7 @@ provider "aws" {
 resource "aws_security_group" "allow_HTTP_HTTPS_RDP" {
   name        = "allow_HTTP_HTTPS_RDP"
   description = "Allow HTTP,HTTPS,RDP inbound traffic"
-  vpc_id      = data.aws_vpc.GTM-AWS-EUS-INT-DFS-CS-VPC.id
+  vpc_id      =  "${aws_vpc.GTM-AWS-EUS-INT-DFS-CS-VPC.id}"
 
 ingress {
     description      = "RDP Allow"
