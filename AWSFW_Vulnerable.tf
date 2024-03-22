@@ -1,28 +1,16 @@
 provider "aws" {
- region = "us-west-2"
-}
-
-data "aws_vpc" "default" {
- default = true
+ region = "us-east-1"
 }
 
 resource "aws_security_group" "allow_HTTP_HTTPS_RDP" {
   name        = "allow_HTTP_HTTPS_RDP"
   description = "Allow HTTP,HTTPS,RDP inbound traffic"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id =      aws_vpc.GTM-AWS-EUS-INT-DFS-CS-VPC.id
 
 ingress {
     description      = "RDP Allow"
     from_port        = 3389
     to_port          = 3389
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-ingress {
-    description      = "HTTP Allow"
-    from_port        = 80
-    to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
