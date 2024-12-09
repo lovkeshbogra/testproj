@@ -45,6 +45,6 @@ ingress {
   }
 
   tags = {
-    Name = "allow_HTTP_HTTPS_RDP1"
+    Name = "allow_HTTP_HTTPS_RDP"
   }
 }
