@@ -27,6 +27,14 @@ resource "aws_security_group" "allow_HTTP_HTTPS_RDP" {
     cidr_blocks = ["0.0.0.0/0"] # Open to all (not recommended for production)
   }
 
+ingress {
+    description      = "HTTP Allow"
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]  # Unsecure (not recommended for production)
+  }
+
   ingress {
     description = "SSH Allow"
     from_port   = 22
