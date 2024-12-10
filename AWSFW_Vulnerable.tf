@@ -6,7 +6,7 @@ data "aws_vpc" "GTM-AWS-EUS-INT-DFS-CS-VPC" {
  default = false
 }
 
-resource "aws_security_group" "allow_HTTP_HTTPS_RDP" {
+resource "aws_security_group" "allow_HTTP_HTTPS_RDP1" {
   name        = "allow_HTTP_HTTPS_RDP1"
   description = "Allow HTTP,HTTPS,RDP inbound traffic"
   vpc_id      = "${data.aws_vpc.GTM-AWS-EUS-INT-DFS-CS-VPC.id}"
